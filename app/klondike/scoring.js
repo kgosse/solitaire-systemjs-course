@@ -1,7 +1,4 @@
-angular.module("klondike.scoring", [])
-  .service("scoring", [function Scoring() {
-    "use strict";
-
+export function Scoring() {
     this.score = 0;
 
     this.newGame = function () {
@@ -30,4 +27,4 @@ angular.module("klondike.scoring", [])
         }
       }
     }
-  }]);
+  }
