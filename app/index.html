@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Solitaire</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="klondike/game.css">
-  <script src="bower_components/traceur/traceur.min.js"></script>
-  <script src="bower_components/system.js/dist/system.js"></script>
-  <script src="lib/system.yuml.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Solitaire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="klondike/game.css">
+    <script src="bower_components/traceur/traceur.min.js"></script>
+    <script src="bower_components/system.js/dist/system.js"></script>
+    <script src="lib/system.yuml.js"></script>
 </head>
 <body>
 
@@ -25,7 +25,13 @@
 <script src="cards/cards.js"></script>
 
 <script>
-  System.import("app.js");
+    /*  System.config({
+     transpiler: "babel",
+     map: {
+     "babel": "../node_modules/babel-core/lib/api/browser.js"
+     }
+     });*/
+    System.import("app.js");
 </script>
 </body>
 </html>
