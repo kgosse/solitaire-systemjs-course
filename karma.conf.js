@@ -1,43 +1,51 @@
 /* eslint-env node*/
 
 module.exports = function (config) {
-  "use strict";
+    "use strict";
 
-  config.set({
+    config.set({
 
-    basePath: "./",
+        basePath: "./",
 
-    files: [
-      "app/bower_components/angular/angular.js",
-      "app/bower_components/angular-route/angular-route.js",
-      "app/bower_components/angular-mocks/angular-mocks.js",
-      "app/bower_components/underscore/underscore.js",
-      "app/cards/**/*.js",
-      "app/klondike/piles/pile.js",
-      "app/klondike/piles/foundationPile.js",
-      "app/klondike/piles/remainderPile.js",
-      "app/klondike/piles/tableauPile.js",
-      "app/klondike/*.js",
-      "tests/**/*.js"
-    ],
+        files: [
+            "app/bower_components/angular/angular.js",
+            "app/bower_components/angular-route/angular-route.js",
+            "app/bower_components/angular-mocks/angular-mocks.js",
+            "app/bower_components/underscore/underscore.js",
+            "app/klondike/piles/pile.js",
+            "app/klondike/piles/foundationPile.js",
+            "app/klondike/piles/remainderPile.js",
+            "app/klondike/piles/tableauPile.js"
+        ],
 
-    autoWatch: true,
+        jspm: {
+            config: "app/config.js",
+            packages: "app/bower_components/system.js/dist",
+            serveFiles: [
+                "app/**/*.js"
+            ],
+            loadFiles: [
+                "tests/cards/card_test.js"
+            ]
+        },
 
-    frameworks: ["jasmine"],
+        autoWatch: true,
 
-    browsers: ["Chrome", "Firefox"],
+        frameworks: ["jspm","jasmine"],
 
-    plugins: [
-      "karma-chrome-launcher",
-      "karma-firefox-launcher",
-      "karma-jasmine",
-      "karma-junit-reporter"
-    ],
+        browsers: ["Chrome"],
 
-    junitReporter: {
-      outputFile: "test_out/unit.xml",
-      suite: "unit"
-    }
+        plugins: [
+            "karma-jspm",
+            "karma-chrome-launcher",
+            "karma-jasmine",
+            "karma-junit-reporter"
+        ],
 
-  });
+        junitReporter: {
+            outputFile: "test_out/unit.xml",
+            suite: "unit"
+        }
+
+    });
 };
