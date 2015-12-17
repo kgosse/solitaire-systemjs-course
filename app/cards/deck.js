@@ -4,11 +4,11 @@
 import _ from "underscore";
 import Card from "./cards.js";
 
-export default function Deck() {
-    this.unShuffled = function unShuffled() {
+export default class Deck {
+    unShuffled() {
         return _.chain(Card.ranksInImagesOrder)
-            .map(function (rank) {
-                return Card.suitsInImagesOrder.map(function (suit) {
+            .map((rank)=> {
+                return Card.suitsInImagesOrder.map((suit)=> {
                     return {
                         suit: suit,
                         rank: rank
@@ -16,13 +16,13 @@ export default function Deck() {
                 });
             })
             .flatten()
-            .map(function (card) {
+            .map((card)=> {
                 return new Card(card);
             })
             .value();
-    };
+    }
 
-    this.shuffled = function shuffled() {
+    shuffled() {
         return _.shuffle(this.unShuffled());
-    };
+    }
 }
